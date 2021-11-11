@@ -1,6 +1,3 @@
-// let textInput = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-// let textInput = "BCDEFGHIJKLMNOPQRSTUVWXYZAbcdefghijklmnopqrstuvwxyza"
-
 const alphabet = require("./alphabet")
 
 module.exports = function (text){

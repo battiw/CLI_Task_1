@@ -1,8 +1,4 @@
-// let textInput = "AABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
 const alphabet = require("./alphabet")
-
-console.log(typeof textInput)
 
 module.exports = function (text){
 

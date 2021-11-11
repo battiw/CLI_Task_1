@@ -28,9 +28,9 @@ let arrArg =[]
             arrArg.push(symbolStr)
     }
 
-console.log(arrFlag)
-console.log(arrArg)
-console.log(arrArg.length)
+// console.log(arrFlag)
+// console.log(arrArg)
+// console.log(arrArg.length)
 
 // по элементу массива аргументов находим и вносим в циклом в массив и если в нем больше двух одинаковых элементов то stderr
 arrFlag.forEach((item)=>{
@@ -77,9 +77,9 @@ if ( config === '-c' || config === '--config'){
         }
     })
     objParams.cipher = strCipher.slice(1) // удаляем первый "-"
-    console.log(objParams)
-    console.log(strCipher)
-    console.log(`strCipher: ${typeof strCipher}`)
+    // console.log(objParams)
+    // console.log(strCipher)
+    // console.log(`strCipher: ${typeof strCipher}`)
 
 // перебераем массив с аргументами и 
 arrArg.forEach(function(item, index) {
