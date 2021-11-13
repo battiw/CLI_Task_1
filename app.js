@@ -6,21 +6,20 @@ const objParams = require ( "./argumentsParsing" );
 const TransformStreamCE = require ( './transformCE' );
 const transformCE = new TransformStreamCE();
 
-if ( objParams.input !== null && objParams.output !== null ) {
-
+if ( objParams.input !== undefined && objParams.output !== undefined ) {
         const readStream = fs.createReadStream( 'input.txt', 'utf-8' );
-        const writeStream = fs.createWriteStream( 'output.txt' );
-        readStream.pipe(transformCE).pipe(writeStream);
+        const writeStream = fs.createWriteStream('output.txt',  {flags: 'a+'});
+        readStream.pipe(transformCE).pipe(writeStream );
 
-} else  if ( objParams.input !== null && objParams.output === null ) {
+} else  if ( objParams.input !== undefined && objParams.output === undefined ) {
         const readStream = fs.createReadStream( 'input.txt', 'utf-8' );
         readStream.pipe(transformCE).pipe(stdout);
 
-} else if ( objParams.input === null && objParams.output !== null ) {
-        const writeStream = fs.createWriteStream( 'output.txt' );
+} else if ( objParams.input === undefined && objParams.output !== undefined ) {
+        const writeStream = fs.createWriteStream( 'output.txt', {flags: 'a+'});
         stdin.pipe(transformCE).pipe(writeStream);
 
-} else if ( objParams.input === null && objParams.output === null ) {
+} else if ( objParams.input === undefined && objParams.output === undefined ) {
         stdin.pipe(transformCE).pipe(stdout);
 
 } else {

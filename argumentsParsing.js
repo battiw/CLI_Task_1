@@ -10,7 +10,8 @@ let inputText = process.argv[5];
 let output = process.argv[6];
 let outputText = process.argv[7];
 
-let objParams  ={}; // выводной объект с параметрами распарсиной строки консоли
+ // выводной объект с параметрами распарсиной строки консоли
+let objParams = {};
 
 let arrFlag = [];
 let arrArg = [];
@@ -63,7 +64,9 @@ for ( item of cipStr ) {
 
 // перебераем массив с аргументами и 
 arrArg.forEach( function( item, index ) {
+    console.log()
     if ( item == '-i' || item == '--input' ) {
+        console.log("PROBLEM1")
         item = '-i';
         objParams.input = item;
     } else if ( item == '-o' || item == '--output' ) {
