@@ -1,14 +1,11 @@
-// let textInput = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-let textInput = "At vero eos et accusamus et iusto odio dignissimos ducimus, ..."
-
 const alphabet = require("./alphabet")
 
-let alpLen = alphabet.length-1
+module.exports = function (text){
 
 let outArr=[]
 
 // преобразование строки в массив (converting string to array)
-let strArr = textInput.split('')
+let strArr = text.split('')
 
 // перебор входящего массива (iterating over the incoming array)
 strArr.forEach((item)=>{
@@ -35,4 +32,6 @@ strArr.forEach((item)=>{
 })
 
 // конвертация выводного массива в строку (convert output array to string)
-console.log(outArr.join(""))
+// console.log(outArr.join(""))
+return outArr.join("")
+}
