@@ -1,8 +1,6 @@
 let fs = require ( 'fs' );
 const { stdin, stdout, stderr } = require( 'process' );
 
-let nodePath = process.argv[0];
-let appPath = process.argv[1];
 let config = process.argv[2];
 let cipher = process.argv[3];
 let input = process.argv[4];
@@ -31,7 +29,7 @@ arrFlag.forEach(( item ) => {
         if ( item == arrFlag[i] ) {
             arrTemp.push( item[i] );
             if ( arrTemp.length >= 2 ) {
-                stderr.write( 'duplicate element\n' );
+                stderr.write( 'Duplicate element\n' );
                 process.exit(1);
             };
         };
@@ -42,54 +40,64 @@ arrFlag.forEach(( item ) => {
 if ( config === '-c' || config === '--config') {
 
     if( arrArg.length >=4 && arrArg.length <=8 ) {
-        console.log("configuration is valid OK");
         objParams.config = '-c';
         let cipStr = cipher.split( '-' );
         let strCipher = '';
 
-// перебераем строку с видами шифра и вводим ее параметром выводного объекта
-for ( item of cipStr ) {    
-        if ( item[0] === 'C' || item[0] === 'R' ) {
-                if ( item[1] === '0' || item[1] === '1' ) {
-                    strCipher = strCipher + '-' + item[0] + item[1];
-                };
-        } else if ( item[0] === 'A' && item[1] == null ) {
-            strCipher = strCipher + '-' + item[0];
-        } else {
-                stderr.write( 'configuration cipher entered incorrectly\n' );
-                process.exit(1);
+        // перебераем строку с видами шифра и вводим ее параметром выводного объекта
+        for ( item of cipStr ) {    
+            if ( item[0] === 'C' || item[0] === 'R' ) {
+                    if ( item[1] === '0' || item[1] === '1' ) {
+                        strCipher = strCipher + '-' + item[0] + item[1];
+                    } else {
+                        stderr.write( 'Configuration cipher Caesar and ROT-8 entered incorrectly\n' );
+                        process.exit(1);
+                    } ;
+            } else if ( item[0] === 'A' && item[1] == null ) {
+                strCipher = strCipher + '-' + item[0];
+            } else {
+                    stderr.write( 'Configuration cipher Atbash entered incorrectly\n' );
+                    process.exit(1);
+            };
         };
-    };
-    objParams.cipher = strCipher.slice(1); // удаляем первый "-"
+        objParams.cipher = strCipher.slice(1); // удаляем первый "-"
 
-// перебераем массив с аргументами и 
-arrArg.forEach( function( item, index ) {
-    console.log()
-    if ( item == '-i' || item == '--input' ) {
-        console.log("PROBLEM1")
-        item = '-i';
-        objParams.input = item;
-    } else if ( item == '-o' || item == '--output' ) {
-        item = '-o';
-        objParams.output = item;
-   } else if ( item.startsWith( './' ) && index==5 ) {
-        objParams.inputText = item;
-   } else if ( item.startsWith( './' ) && index==7 ) {
-        objParams.outputText = item;
-   } else if ( index !== 1 || index !== 0) {
-   } else {
-    stderr.write( 'configuration arguments entered incorrectly\n' );
-    process.exit(1);
-   };
-});
+let indexI;
+let indexO;
+
+        // перебераем массив с аргументами и 
+        arrArg.forEach( function( item, index ) {
+            if ( item == '-i' || item == '--input' ) {
+                item = '-i';
+                objParams.input = item;
+                    indexI= index+1 
+
+            } else if ( item == '-o' || item == '--output' ) {
+                item = '-o';
+                objParams.output = item;
+                    indexO = index+1;
+
+            } else if ( item.startsWith( './' ) && indexI===index) {
+                objParams.inputText = item;
+
+            } else if ( item.startsWith( './' ) && indexO===index) {
+                objParams.outputText = item;
+
+            } else if ( index !== 1 || index !== 0) {
+            } else {
+                stderr.write( 'Configuration arguments entered incorrectly\n' );
+                process.exit(1);
+            };
+        });
     
-} else {
-stderr.write( 'exceeded number of parameters\n' );
-process.exit(1);
-};
+    } else {
+        stderr.write( 'Exceeded number of parameters\n' );
+        process.exit(1);
+    };
 
 } else {
-stderr.write( 'configuration parameter entered incorrectly\n' );
-process.exit(1);
+    stderr.write( 'Configuration parameter entered incorrectly\n' );
+    process.exit(1);
 };
+
 module.exports = objParams;

@@ -3,15 +3,15 @@ const Transform = require( "stream" ).Transform,
 
 const handlerArguments = require( "./handlerArguments" );
 
-const TransformStreamCE = function () {
+const TransformStreamCoding = function () {
    Transform.call( this, {objectMode: true} );
 };
-util.inherits( TransformStreamCE, Transform );
+util.inherits( TransformStreamCoding, Transform );
 
-TransformStreamCE.prototype._transform = function ( chunk, encoding, callback ) {
+TransformStreamCoding.prototype._transform = function ( chunk, encoding, callback ) {
    chunk = chunk.toString();
    let text = handlerArguments( chunk );
    this.push( text );
    callback();
 };
-module.exports = TransformStreamCE;
+module.exports = TransformStreamCoding;

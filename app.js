@@ -1,26 +1,46 @@
 let fs = require ( 'fs' )
+let path = require ( 'path' )
+
 const { stdout, stdin, stderr } = require ( 'process' )
 
 const objParams = require ( "./argumentsParsing" );
 
-const TransformStreamCE = require ( './transformCE' );
-const transformCE = new TransformStreamCE();
+const TransformStreamCoding = require ( './transformCoding' );
+const transformCoding = new TransformStreamCoding();
 
 if ( objParams.input !== undefined && objParams.output !== undefined ) {
-        const readStream = fs.createReadStream( 'input.txt', 'utf-8' );
-        const writeStream = fs.createWriteStream('output.txt',  {flags: 'a+'});
-        readStream.pipe(transformCE).pipe(writeStream );
+        fs.access(objParams.inputText && objParams.outputText, fs.F_OK, ( err ) => {
+                if ( err ) {
+                  console.error( err );
+                  return
+                };
+                const readStream = fs.createReadStream( objParams.inputText, 'utf-8' );
+                const writeStream = fs.createWriteStream(objParams.outputText,  {flags: 'a+'});
+                 readStream.pipe(transformCoding).pipe(writeStream );
+        });
 
 } else  if ( objParams.input !== undefined && objParams.output === undefined ) {
-        const readStream = fs.createReadStream( 'input.txt', 'utf-8' );
-        readStream.pipe(transformCE).pipe(stdout);
-
+        fs.access(objParams.inputText, fs.F_OK, ( err ) => {
+                if (err) {
+                  console.error( err );
+                  return
+                };
+                const readStream = fs.createReadStream( objParams.inputText, 'utf-8' );
+                readStream.pipe(transformCoding).pipe(stdout);
+        });
+        
 } else if ( objParams.input === undefined && objParams.output !== undefined ) {
-        const writeStream = fs.createWriteStream( 'output.txt', {flags: 'a+'});
-        stdin.pipe(transformCE).pipe(writeStream);
-
+        fs.access(objParams.outputText, fs.F_OK, ( err ) => {
+                if ( err ) {
+                  console.error( err );
+                  return
+                };
+                const writeStream = fs.createWriteStream(objParams.outputText, {flags: 'a+'});
+                stdin.pipe(transformCoding).pipe(writeStream);
+        });
+        
 } else if ( objParams.input === undefined && objParams.output === undefined ) {
-        stdin.pipe(transformCE).pipe(stdout);
+        stdin.pipe(transformCoding).pipe(stdout);
 
 } else {
         stderr.write( 'parameters are set incorrectly' );
