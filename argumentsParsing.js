@@ -1,6 +1,7 @@
 let fs = require ( 'fs' );
 const { stdin, stdout, stderr } = require( 'process' );
 
+
 let config = process.argv[2];
 let cipher = process.argv[3];
 // let input = process.argv[4];
@@ -8,11 +9,17 @@ let cipher = process.argv[3];
 // let output = process.argv[6];
 // let outputText = process.argv[7];
 
- // выводной объект с параметрами распарсиной строки консоли
-let objParams = {};
+ 
 
 let arrFlag = [];
 let arrArg = [];
+
+module.exports = function(){
+
+// выводной объект с параметрами распарсиной строки консоли
+let objParams = {};
+
+    
     // находим циклом аргументы и записываем в массив
      for ( let i = 0; i <= process.argv.length-1; i++ ) {
          let symbolStr = process.argv[i];
@@ -99,5 +106,9 @@ let indexO;
     stderr.write( 'Configuration parameter entered incorrectly\n' );
     process.exit(1);
 };
+console.log(objParams)
+return objParams;
 
-module.exports = objParams;
+};
+
+// module.exports = objParams;

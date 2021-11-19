@@ -4,10 +4,16 @@ const atbashEncoding = require( "./atbashEncoding" );
 const rot8Encoding = require( "./rot8Encoding" );
 const rot8Decoding = require( "./rot8Decoding" );
 const argumentsParsing = require( "./argumentsParsing" );
+console.log(argumentsParsing())
+
+// const test = argumentsParsing()
 
 module.exports = function( text ) {
+    console.log (argumentsParsing)
     let newtext = text;
-    let newarr = argumentsParsing.cipher.split( '-' );
+    let newarr = argumentsParsing().cipher.split( '-' );
+    console.log(newarr)
+    console.log(typeof newarr)
 
         for ( element of newarr ) {
             if ( element === "C1" ) {

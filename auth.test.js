@@ -25,8 +25,54 @@ describe( "should show correct coding", () => {
     } ); 
 } );
 
-let number = 55
+let notEngText = " русский алфавит ";
 
-test(" not a number ", () => {
-    expect(atbash(number)).not.toBe('error')
-})
+describe( "should not change non-english alphabet", () => {
+
+    test("atbash must not encode non-english alphabet", () => {
+        expect(atbash(notEngText)).toBe(" русский алфавит ");
+    });
+    test("atbash must not encode non-english alphabet", () => {
+        expect(caesarE(notEngText)).toBe(" русский алфавит ");
+    });
+    test("atbash must not encode non-english alphabet", () => {
+        expect(caesarD(notEngText)).toBe(" русский алфавит ");
+    });
+    test("atbash must not encode non-english alphabet", () => {
+        expect(r8E(notEngText)).toBe(" русский алфавит ");
+    });
+    test("atbash must not encode non-english alphabet", () => {
+        expect(r8D(notEngText)).toBe(" русский алфавит ");
+    });
+});
+
+let sumbol = `-!=><()@#$%^&*?/":"1234567890`;
+
+describe( "shouldn't change any characters", () => {
+
+    test("atbash should not encode characters", () => {
+        expect(atbash(sumbol)).toBe( `-!=><()@#$%^&*?/":"1234567890` )
+    });
+    test("atbash should not encode characters", () => {
+        expect(caesarE(sumbol)).toBe( `-!=><()@#$%^&*?/":"1234567890` )
+    });
+    test("atbash should not encode characters", () => {
+        expect(caesarD(sumbol)).toBe( `-!=><()@#$%^&*?/":"1234567890` )
+    });
+    test("atbash should not encode characters", () => {
+        expect(r8E(sumbol)).toBe( `-!=><()@#$%^&*?/":"1234567890` )
+    });
+    test("atbash should not encode characters", () => {
+        expect(r8D(sumbol)).toBe( `-!=><()@#$%^&*?/":"1234567890` )
+    });
+});
+
+
+// let  text1 = `This is secret. Message about "_" symbol!`
+
+
+// test("q", () => {
+//     // const argumentsParsing = {cipher: '-A'};
+// expect(atbash(text1)).toBe(`Gsrh rh hvxivg. Nvhhztv zylfg "_" hbnylo!`)
+
+// })

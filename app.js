@@ -1,5 +1,4 @@
 let fs = require ( 'fs' )
-let path = require ( 'path' )
 
 const { stdout, stdin, stderr } = require ( 'process' )
 
