@@ -3,10 +3,10 @@ const { stdin, stdout, stderr } = require( 'process' );
 
 let config = process.argv[2];
 let cipher = process.argv[3];
-let input = process.argv[4];
-let inputText = process.argv[5];
-let output = process.argv[6];
-let outputText = process.argv[7];
+// let input = process.argv[4];
+// let inputText = process.argv[5];
+// let output = process.argv[6];
+// let outputText = process.argv[7];
 
  // выводной объект с параметрами распарсиной строки консоли
 let objParams = {};

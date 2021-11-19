@@ -1,6 +1,7 @@
 const alphabet = require( "./alphabet" );
 
 module.exports = function ( text ) {
+
     let outArr = [];
 
     // преобразование строки в массив (converting string to array)
@@ -30,3 +31,4 @@ module.exports = function ( text ) {
     });
     return outArr.join( "" );
 };
+
