@@ -3,17 +3,16 @@ const caesarDecoding = require( "./caesarDecoding" );
 const atbashEncoding = require( "./atbashEncoding" );
 const rot8Encoding = require( "./rot8Encoding" );
 const rot8Decoding = require( "./rot8Decoding" );
-const argumentsParsing = require( "./argumentsParsing" );
-console.log(argumentsParsing())
+// const argumentsParsing = require( "./argumentsParsing" );
 
-// const test = argumentsParsing()
+// let cip = argumentsParsing.cipher
 
-module.exports = function( text ) {
-    console.log (argumentsParsing)
+// console.log(`test1: ${cip}`)
+
+module.exports = function( text, argumentsParsing ) {
+    let cip = argumentsParsing.cipher;
     let newtext = text;
-    let newarr = argumentsParsing().cipher.split( '-' );
-    console.log(newarr)
-    console.log(typeof newarr)
+    let newarr = cip.split( '-' );
 
         for ( element of newarr ) {
             if ( element === "C1" ) {
