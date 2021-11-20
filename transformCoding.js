@@ -2,7 +2,7 @@ const Transform = require( "stream" ).Transform,
    util = require("util");
 
 const handlerArguments = require( "./handlerArguments" );
-const argumentsParsingObject = require( "./argumentsParsing" );
+const argumentsParsingObject = require( "./resultParsing" );
 
 
 const TransformStreamCoding = function () {
@@ -12,7 +12,7 @@ util.inherits( TransformStreamCoding, Transform );
 
 TransformStreamCoding.prototype._transform = function ( chunk, encoding, callback ) {
    chunk = chunk.toString();
-   let text = handlerArguments( chunk, argumentsParsingObject.argumentsResult );
+   let text = handlerArguments( chunk, argumentsParsingObject.resultParsing );
    this.push( text );
    callback();
 };

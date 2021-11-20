@@ -1,8 +1,8 @@
-const caesarEncoding = require( "./caesarEncoding" );
-const caesarDecoding = require( "./caesarDecoding" );
-const atbashEncoding = require( "./atbashEncoding" );
-const rot8Encoding = require( "./rot8Encoding" );
-const rot8Decoding = require( "./rot8Decoding" );
+const caesarEncoding = require( "./Ciphers/Caesar/caesarEncoding" );
+const caesarDecoding = require( "./Ciphers/Caesar/caesarDecoding" );
+const atbashEncoding = require( "./Ciphers/Atbash/atbashEncoding" );
+const rot8Encoding = require( "./Ciphers/ROT8/rot8Encoding" );
+const rot8Decoding = require( "./Ciphers/ROT8/rot8Decoding" );
 // const argumentsParsing = require( "./argumentsParsing" );
 
 // let cip = argumentsParsing.cipher

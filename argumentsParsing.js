@@ -1,22 +1,7 @@
 let fs = require ( 'fs' );
 const { stderr } = require( 'process' );
 
-
-let config = process.argv[2];
-let cipher = process.argv[3];
-
-// console.log(`config => ${config}`)
-// console.log(`cipher => ${cipher}`)
-
-
-
  function argumentsParsing (config, cipher) {
-    console.log(`TEST1=> ${config === '-c' || config === '--config'}`)
-//  console.log(`cofig = > ${typeof config}`)
-//  console.log(`cipher = > ${typeof config}`)
-
-console.log(config);
-console.log(cipher);
 
     // выводной объект с параметрами распарсиной строки консоли
     let objParams = {};
@@ -53,7 +38,7 @@ console.log(cipher);
 
 
 
-        if( arrArg.length >=4 && arrArg.length <=8 ) {
+        if( arrArg.length >=0 && arrArg.length <=8 ) {
             objParams.config = '-c';
             let cipStr = cipher.split( '-' );
             let strCipher = '';
@@ -118,6 +103,6 @@ return objParams;
 
 };
 
-module.exports.argumentsResult = argumentsParsing( config, cipher );
+// module.exports.argumentsResult = argumentsParsing( config, cipher );
 
 module.exports.argumentsParsing = argumentsParsing;

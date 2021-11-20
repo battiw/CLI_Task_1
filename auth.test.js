@@ -1,8 +1,8 @@
-const atbash = require( "./atbashEncoding" );
-const caesarE = require( "./caesarEncoding" );
-const caesarD = require( "./caesarDecoding" );
-const r8E = require( "./rot8Encoding" );
-const r8D = require( "./rot8Decoding" );
+const atbash = require( "./Ciphers/Atbash/atbashEncoding" );
+const caesarE = require( "./Ciphers/Caesar/caesarEncoding" );
+const caesarD = require( "./Ciphers/Caesar/caesarDecoding" );
+const r8E = require( "./Ciphers/ROT8/rot8Encoding" );
+const r8D = require( "./Ciphers/ROT8/rot8Decoding" );
 
 let text = `This is secret. Message about "_" symbol!`
 

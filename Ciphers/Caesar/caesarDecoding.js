@@ -1,4 +1,4 @@
-const alphabet = require( "./alphabet" );
+const alphabet = require( "../../alphabet" );
 
 module.exports = function ( text ) {
     let outArr = [];
