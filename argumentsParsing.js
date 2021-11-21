@@ -98,11 +98,8 @@ const { stderr } = require( 'process' );
         stderr.write( 'Configuration parameter entered incorrectly\n' );
         process.exit(1);
     };
-    console.log(objParams)
 return objParams;
 
 };
 
-// module.exports.argumentsResult = argumentsParsing( config, cipher );
-
-module.exports.argumentsParsing = argumentsParsing;
+module.exports.argumentsParsingExport = argumentsParsing;

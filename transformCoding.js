@@ -12,7 +12,7 @@ util.inherits( TransformStreamCoding, Transform );
 
 TransformStreamCoding.prototype._transform = function ( chunk, encoding, callback ) {
    chunk = chunk.toString();
-   let text = handlerArguments( chunk, argumentsParsingObject.resultParsing );
+   let text = handlerArguments.handlerArgumentsExports( chunk, argumentsParsingObject.resultParsing );
    this.push( text );
    callback();
 };

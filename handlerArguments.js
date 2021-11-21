@@ -4,14 +4,15 @@ const atbashEncoding = require( "./Ciphers/Atbash/atbashEncoding" );
 const rot8Encoding = require( "./Ciphers/ROT8/rot8Encoding" );
 const rot8Decoding = require( "./Ciphers/ROT8/rot8Decoding" );
 
-module.exports = function( text, argumentsParsing ) {
+
+function handlerArguments( text, argumentsParsing ) {
     let cip = argumentsParsing.cipher;
     let newtext = text;
     let newarr = cip.split( '-' );
 
         for ( element of newarr ) {
             if ( element === "C1" ) {
-                newtext = caesarEncoding(newtext);
+                newtext = caesarEncoding( newtext );
 
             } else if ( element === "C0" ) {
                 newtext = caesarDecoding( newtext );
@@ -28,3 +29,5 @@ module.exports = function( text, argumentsParsing ) {
         };
         return newtext;
 };
+
+module.exports.handlerArgumentsExports = handlerArguments
