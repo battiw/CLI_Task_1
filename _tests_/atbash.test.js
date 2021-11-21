@@ -1,4 +1,4 @@
-const atbash = require( "../Ciphers/Atbash/atbashEncoding" );
+const atbash = require( "../src/Ciphers/Atbash/atbashEncoding" );
 
 let text = `This is secret. Message about "_" symbol!`;
 let notEngText = `русский алфавит`;

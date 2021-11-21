@@ -1,4 +1,4 @@
-const r8E = require( "../Ciphers/ROT8/rot8Encoding" );
+const r8E = require( "../src/Ciphers/ROT8/rot8Encoding" );
 
 let text = `This is secret. Message about "_" symbol!`;
 let notEngText = `русский алфавит`;

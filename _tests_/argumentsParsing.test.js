@@ -1,4 +1,4 @@
-const argumentsResultObject = require( "../argumentsParsing" );
+const argumentsResultObject = require( "../src/argumentsParsing" );
 
 let config = "-c";
 let config1 = "--config";

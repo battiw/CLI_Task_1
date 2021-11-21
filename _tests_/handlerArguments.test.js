@@ -1,5 +1,5 @@
-const argumentsResultObject = require( "../argumentsParsing" );
-const handlerArgumentsObject = require( "../handlerArguments" );
+const argumentsResultObject = require( "../src/argumentsParsing" );
+const handlerArgumentsObject = require( "../src/handlerArguments" );
 
 let text = `This is secret. Message about "_" symbol QAZWSXEDCRFVTGBYHNUJMIKOLP abxz!`;
 

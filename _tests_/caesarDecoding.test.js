@@ -1,4 +1,4 @@
-const caesarD = require( "../Ciphers/Caesar/caesarDecoding" );
+const caesarD = require( "../src/Ciphers/Caesar/caesarDecoding" );
 
 let text = `This is secret. Message about "_" symbol QAZWSXEDCRFVTGBYHNUJMIKOLP abxz!`;
 let notEngText = `русский алфавит`;
