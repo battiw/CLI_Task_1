@@ -3,11 +3,6 @@ const caesarDecoding = require( "./Ciphers/Caesar/caesarDecoding" );
 const atbashEncoding = require( "./Ciphers/Atbash/atbashEncoding" );
 const rot8Encoding = require( "./Ciphers/ROT8/rot8Encoding" );
 const rot8Decoding = require( "./Ciphers/ROT8/rot8Decoding" );
-// const argumentsParsing = require( "./argumentsParsing" );
-
-// let cip = argumentsParsing.cipher
-
-// console.log(`test1: ${cip}`)
 
 module.exports = function( text, argumentsParsing ) {
     let cip = argumentsParsing.cipher;
