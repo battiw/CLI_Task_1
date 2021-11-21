@@ -1,9 +1,9 @@
 let fs = require ( 'fs' )
-let path = require ( 'path' )
 
 const { stdout, stdin, stderr } = require ( 'process' )
 
 const objParams = require ( "./argumentsParsing" );
+
 
 const TransformStreamCoding = require ( './transformCoding' );
 const transformCoding = new TransformStreamCoding();
@@ -16,7 +16,7 @@ if ( objParams.input !== undefined && objParams.output !== undefined ) {
                 };
                 const readStream = fs.createReadStream( objParams.inputText, 'utf-8' );
                 const writeStream = fs.createWriteStream(objParams.outputText,  {flags: 'a+'});
-                 readStream.pipe(transformCoding).pipe(writeStream );
+                 readStream.pipe( transformCoding ).pipe( writeStream );
         });
 
 } else  if ( objParams.input !== undefined && objParams.output === undefined ) {
