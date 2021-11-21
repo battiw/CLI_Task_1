@@ -1,7 +1,5 @@
 const funParsing = require("./argumentsParsing");
 
 
-let config = process.argv[2];
-let cipher = process.argv[3];
 
-module.exports.resultParsing = funParsing.argumentsParsingExport(config, cipher);
+module.exports.resultParsing = funParsing.argumentsParsingExport(Array.from(process.argv));

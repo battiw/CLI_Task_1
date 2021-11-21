@@ -1,7 +1,8 @@
 let fs = require ( 'fs' );
 const { stderr } = require( 'process' );
 
- function argumentsParsing (config, cipher) {
+//  function argumentsParsing (config, cipher ) {
+ function argumentsParsing ( inputarr ) {
 
     // выводной объект с параметрами распарсиной строки консоли
     let objParams = {};
@@ -11,8 +12,8 @@ const { stderr } = require( 'process' );
 
     
     // находим циклом аргументы и записываем в массив
-     for ( let i = 0; i <= process.argv.length-1; i++ ) {
-         let symbolStr = process.argv[i];
+     for ( let i = 0; i <= inputarr.length-1; i++ ) {
+         let symbolStr = inputarr[i];
             if ( symbolStr.charAt(0) === '-' || symbolStr.charAt(0) === '--' ) {
                 arrFlag.push( symbolStr );
             };
@@ -26,7 +27,8 @@ const { stderr } = require( 'process' );
             if ( item == arrFlag[i] ) {
                 arrTemp.push( item[i] );
                 if ( arrTemp.length >= 2 ) {
-                    stderr.write( 'Duplicate element\n' );
+                    stderr.write( `Error: You provided -c argument more than once\n
+                    Duplicate element\n` );
                     process.exit(1);
                 };
             };
@@ -34,13 +36,10 @@ const { stderr } = require( 'process' );
     });
 
     // проверка на валидность конфигурации
-    if ( config === '-c' || config === '--config') {
-
-
-
+    if ( inputarr[2] === '-c' || inputarr[2] === '--config') {
         if( arrArg.length >=0 && arrArg.length <=8 ) {
             objParams.config = '-c';
-            let cipStr = cipher.split( '-' );
+            let cipStr = inputarr[3].split( '-' );
             let strCipher = '';
 
             // перебераем строку с видами шифра и вводим ее параметром выводного объекта
